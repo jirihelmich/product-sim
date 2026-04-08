@@ -482,3 +482,32 @@ h3 { font-size: 1.1rem; }
 /* ── Embed Mode (when loaded inside reveal.js iframe) ── */
 body.embed-mode #nav { display: none; }
 body.embed-mode #main { padding: var(--space-md); max-width: 100%; }
+
+/* ── Dashboard Tabs ── */
+.dash-tabs {
+  display: flex;
+  gap: var(--space-xs);
+  background: var(--c-white);
+  padding: 4px;
+  border-radius: var(--radius);
+  display: inline-flex;
+}
+
+.dash-tab {
+  padding: var(--space-sm) var(--space-lg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.dash-tab:hover { color: var(--c-dark); }
+.dash-tab.active {
+  background: var(--c-lavender);
+  color: var(--c-purple);
+}
