@@ -1,0 +1,484 @@
+/* ── Product Simulator — Design System ── */
+/* Matches POM training slides (Plus Jakarta Sans, Inter, IBM Plex Sans) */
+
+:root {
+  --c-dark: #1E171B;
+  --c-body: #504D50;
+  --c-muted: #8C868B;
+  --c-purple: #7F75FF;
+  --c-purple-text: #5924E4;
+  --c-red: #E03131;
+  --c-green: #5B9E5B;
+  --c-orange: #f08c00;
+  --c-blue: #1971c2;
+  --c-lavender: #F0EEFF;
+  --c-bg: #F3EEF8;
+  --c-white: #FFFFFF;
+  --c-sage: #C8D5B9;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--c-body);
+  background: var(--c-bg);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--c-dark);
+  font-weight: 600;
+}
+
+h1 { font-size: 2rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.1rem; }
+
+/* ── Navigation ── */
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--c-white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--c-dark);
+}
+
+.brand-icon { font-size: 1.4rem; }
+
+.nav-tabs {
+  display: flex;
+  gap: var(--space-xs);
+  background: var(--c-bg);
+  padding: 4px;
+  border-radius: var(--radius);
+}
+
+.nav-tab {
+  padding: var(--space-sm) var(--space-lg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-tab:hover { color: var(--c-dark); }
+.nav-tab.active {
+  background: var(--c-white);
+  color: var(--c-purple);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ── Pills / Badges ── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 20px;
+  background: var(--c-lavender);
+  color: var(--c-purple);
+}
+
+.pill-purple { background: var(--c-purple); color: white; }
+.pill-green { background: var(--c-green); color: white; }
+.pill-red { background: var(--c-red); color: white; }
+
+/* ── Main Content ── */
+#main {
+  padding: var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.view { display: none; }
+.view.active { display: block; }
+
+/* ── Cards ── */
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--c-purple);
+}
+
+.card.red { border-top-color: var(--c-red); }
+.card.green { border-top-color: var(--c-green); }
+.card.blue { border-top-color: var(--c-blue); }
+.card.orange { border-top-color: var(--c-orange); }
+.card.neutral { border-top-color: var(--c-muted); }
+
+.card h3 {
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── KPI Cards ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.kpi-card {
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.kpi-card .kpi-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--c-dark);
+  margin: var(--space-sm) 0;
+}
+
+.kpi-card .kpi-label {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.kpi-card .kpi-delta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: var(--space-xs);
+}
+
+.kpi-delta.up { color: var(--c-green); }
+.kpi-delta.down { color: var(--c-red); }
+.kpi-delta.neutral { color: var(--c-muted); }
+
+/* ── Sparklines (inline SVG) ── */
+.sparkline { display: inline-block; vertical-align: middle; }
+
+/* ── Funnel ── */
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.funnel-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.funnel-bar {
+  height: 36px;
+  background: var(--c-purple);
+  border-radius: var(--radius);
+  transition: width 0.6s ease;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.funnel-label {
+  font-size: 0.85rem;
+  color: var(--c-dark);
+  min-width: 150px;
+}
+
+.funnel-pct {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── Cohort Heatmap ── */
+.cohort-grid {
+  display: grid;
+  gap: 2px;
+  font-size: 0.7rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.cohort-cell {
+  padding: 6px 4px;
+  text-align: center;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+
+.cohort-header {
+  font-weight: 500;
+  color: var(--c-muted);
+  background: transparent;
+}
+
+/* ── Decision Cards ── */
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.decision-card {
+  background: var(--c-white);
+  border: 2px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.decision-card:hover {
+  border-color: var(--c-purple);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.decision-card.selected {
+  border-color: var(--c-purple);
+  background: var(--c-lavender);
+  box-shadow: 0 0 0 3px rgba(127,117,255,0.2);
+}
+
+.decision-card h3 { margin-bottom: var(--space-sm); }
+
+.decision-card .meta {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-xl);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--c-purple);
+  color: white;
+}
+.btn-primary:hover { background: var(--c-purple-text); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-secondary {
+  background: var(--c-white);
+  color: var(--c-purple);
+  border: 1px solid var(--c-purple);
+}
+.btn-secondary:hover { background: var(--c-lavender); }
+
+.btn-success { background: var(--c-green); color: white; }
+.btn-danger { background: var(--c-red); color: white; }
+
+/* ── Game UI ── */
+.game-question {
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.game-question h2 {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-xl);
+}
+
+.game-options {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.game-btn {
+  padding: var(--space-md) var(--space-2xl);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-lg);
+  background: var(--c-white);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 180px;
+}
+
+.game-btn:hover { border-color: var(--c-purple); transform: translateY(-2px); }
+.game-btn.correct { background: var(--c-green); color: white; border-color: var(--c-green); }
+.game-btn.wrong { background: var(--c-red); color: white; border-color: var(--c-red); }
+
+.game-score {
+  text-align: center;
+  margin-top: var(--space-xl);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+.game-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--c-lavender);
+  border-radius: 2px;
+  margin-bottom: var(--space-xl);
+}
+
+.game-progress-bar {
+  height: 100%;
+  background: var(--c-purple);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* ── Leaderboard ── */
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--c-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.leaderboard-row.first {
+  background: linear-gradient(135deg, var(--c-lavender), var(--c-white));
+  border: 2px solid var(--c-purple);
+}
+
+.leaderboard-rank {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--c-purple);
+  min-width: 2rem;
+}
+
+.leaderboard-team {
+  flex: 1;
+  font-weight: 600;
+}
+
+.leaderboard-score {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--c-dark);
+}
+
+/* ── Section Headers ── */
+.section-header {
+  margin-bottom: var(--space-xl);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.section-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+/* ── Utility ── */
+.center-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  color: var(--c-muted);
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+.text-center { text-align: center; }
+.text-muted { color: var(--c-muted); }
+.text-purple { color: var(--c-purple); }
+.text-red { color: var(--c-red); }
+.text-green { color: var(--c-green); }
+.font-mono { font-family: 'IBM Plex Sans', sans-serif; }
+
+/* ── Embed Mode (when loaded inside reveal.js iframe) ── */
+body.embed-mode #nav { display: none; }
+body.embed-mode #main { padding: var(--space-md); max-width: 100%; }

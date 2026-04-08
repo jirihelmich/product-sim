@@ -1,0 +1,261 @@
+{
+  "company": "Jablotron",
+  "product": "MyJABLOTRON",
+  "domain": "Smart home security & alarm management",
+  "description": "Customer-facing mobile/web portal for managing alarms, cameras, smart home devices, and security events.",
+
+  "baseline": {
+    "kpis": {
+      "mau": { "value": 45200, "label": "Monthly Active Users", "trend": [41000, 42100, 42800, 43500, 44200, 45200], "delta": "+2.3%" },
+      "mrr": { "value": 328000, "label": "Monthly Recurring Revenue", "format": "eur", "trend": [295000, 302000, 310000, 318000, 324000, 328000], "delta": "+1.2%" },
+      "churn": { "value": 3.8, "label": "Monthly Churn Rate", "format": "pct", "trend": [3.2, 3.4, 3.5, 3.6, 3.7, 3.8], "delta": "+0.1pp", "deltaDir": "down" },
+      "activation": { "value": 31, "label": "Activation Rate", "format": "pct", "trend": [34, 33, 32, 32, 31, 31], "delta": "-1pp", "deltaDir": "down" },
+      "nps": { "value": 28, "label": "NPS Score", "trend": [35, 33, 31, 30, 29, 28], "delta": "-1" }
+    },
+
+    "funnel": {
+      "steps": [
+        { "label": "Sign Up", "value": 100, "count": 3200 },
+        { "label": "Download App", "value": 72, "count": 2304 },
+        { "label": "Connect Device", "value": 48, "count": 1536 },
+        { "label": "Configure Zones", "value": 29, "count": 928 },
+        { "label": "Activate Monitoring", "value": 22, "count": 704 },
+        { "label": "First Month Active", "value": 18, "count": 576 }
+      ]
+    },
+
+    "cohorts": {
+      "weeks": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"],
+      "data": [
+        { "label": "Jan W1", "values": [100, 68, 52, 45, 41, 38, 36, 34] },
+        { "label": "Jan W3", "values": [100, 65, 49, 42, 38, 35, 33, 31] },
+        { "label": "Feb W1", "values": [100, 62, 46, 39, 35, 32, 30, null] },
+        { "label": "Feb W3", "values": [100, 60, 43, 36, 32, 29, null, null] },
+        { "label": "Mar W1", "values": [100, 58, 40, 33, 29, null, null, null] },
+        { "label": "Mar W3", "values": [100, 55, 37, 30, null, null, null, null] },
+        { "label": "Apr W1", "values": [100, 52, 34, null, null, null, null, null] },
+        { "label": "Apr W3", "values": [100, 49, null, null, null, null, null, null] }
+      ]
+    },
+
+    "segments": {
+      "residential": { "label": "Residential", "mau": 32400, "activation": 35, "churn": 3.2, "nps": 32 },
+      "commercial": { "label": "Commercial", "mau": 8900, "activation": 24, "churn": 4.8, "nps": 22 },
+      "enterprise": { "label": "Enterprise (installers)", "mau": 3900, "activation": 18, "churn": 5.1, "nps": 19 }
+    }
+  },
+
+  "decisions": {
+    "round1": {
+      "type": "okr",
+      "title": "Set Your Q3 OKRs",
+      "description": "Based on the dashboard data, choose 1 objective and 2-3 key results for Q3.",
+      "objectives": [
+        { "id": "growth", "label": "Accelerate User Growth", "description": "Focus on acquiring new users and expanding the user base" },
+        { "id": "retention", "label": "Stop the Retention Bleed", "description": "Address rising churn and declining cohort retention" },
+        { "id": "activation", "label": "Fix the Onboarding Funnel", "description": "Focus on the massive drop-off between sign-up and active monitoring" },
+        { "id": "enterprise", "label": "Win Enterprise Segment", "description": "Focus on commercial/installer segment with low activation and high churn" }
+      ],
+      "keyResults": {
+        "growth": [
+          { "id": "g1", "label": "Increase MAU from 45K to 55K", "quality": "good" },
+          { "id": "g2", "label": "Get 10,000 new sign-ups", "quality": "bad", "reason": "Output metric, not outcome" },
+          { "id": "g3", "label": "Improve sign-up to activation rate from 22% to 35%", "quality": "good" },
+          { "id": "g4", "label": "Launch 3 new marketing campaigns", "quality": "bad", "reason": "Output, not measurable outcome" }
+        ],
+        "retention": [
+          { "id": "r1", "label": "Reduce monthly churn from 3.8% to 2.5%", "quality": "good" },
+          { "id": "r2", "label": "Increase Week-8 retention from 30% to 42%", "quality": "good" },
+          { "id": "r3", "label": "Send weekly engagement emails", "quality": "bad", "reason": "Output, not outcome" },
+          { "id": "r4", "label": "Increase NPS from 28 to 40", "quality": "ok", "reason": "Lagging indicator, hard to move directly" }
+        ],
+        "activation": [
+          { "id": "a1", "label": "Increase 'Connect Device' step from 48% to 65%", "quality": "good" },
+          { "id": "a2", "label": "Reduce time-to-first-alarm-test from 14 days to 3 days", "quality": "good" },
+          { "id": "a3", "label": "Redesign the onboarding flow", "quality": "bad", "reason": "Output/solution, not measurable outcome" },
+          { "id": "a4", "label": "Increase activation rate from 31% to 50%", "quality": "good" }
+        ],
+        "enterprise": [
+          { "id": "e1", "label": "Increase enterprise activation from 18% to 35%", "quality": "good" },
+          { "id": "e2", "label": "Reduce enterprise churn from 5.1% to 3.0%", "quality": "good" },
+          { "id": "e3", "label": "Sign 50 new installer partnerships", "quality": "bad", "reason": "Output metric" },
+          { "id": "e4", "label": "Build an enterprise admin dashboard", "quality": "bad", "reason": "Solution, not outcome" }
+        ]
+      }
+    },
+
+    "round2": {
+      "type": "experiment",
+      "title": "Design Your Experiment",
+      "description": "Based on the analytics deep-dive, choose which experiment to run.",
+      "options": [
+        { "id": "interview", "label": "Customer Interviews", "cost": "Low", "time": "2 weeks", "evidence": "Qualitative", "description": "Interview 10 users who dropped off at 'Connect Device' step" },
+        { "id": "survey", "label": "User Survey", "cost": "Low", "time": "1 week", "evidence": "Quantitative-ish", "description": "Survey 500 users about their onboarding experience" },
+        { "id": "ab_onboard", "label": "A/B Test: Simplified Onboarding", "cost": "Medium", "time": "3 weeks", "evidence": "Quantitative", "description": "Test a 3-step onboarding vs current 5-step flow" },
+        { "id": "ab_push", "label": "A/B Test: Push Notifications", "cost": "Medium", "time": "2 weeks", "evidence": "Quantitative", "description": "Test alarm event push notifications vs current email-only" },
+        { "id": "prototype", "label": "Prototype Usability Test", "cost": "Low", "time": "1 week", "evidence": "Qualitative", "description": "Test a prototype of the new device connection wizard with 5 users" },
+        { "id": "feature_flag", "label": "Feature Flag: Quick Setup Mode", "cost": "High", "time": "3 weeks", "evidence": "Observational", "description": "Build and roll out a 'quick setup' mode to 10% of new users" }
+      ]
+    },
+
+    "round3": {
+      "type": "ship_or_kill",
+      "title": "Ship, Iterate, or Kill",
+      "description": "Review your experiment results and decide what to do next."
+    }
+  },
+
+  "outcomes": {
+    "round2": {
+      "interview": {
+        "summary": "Customer Interview Results",
+        "findings": [
+          "7/10 users found device pairing confusing — expected it to be automatic via QR code",
+          "5/10 said they gave up after 2 failed Bluetooth pairing attempts",
+          "3/10 didn't understand what 'Configure Zones' meant",
+          "Most mentioned they'd expected a guided video walkthrough"
+        ],
+        "recommendation": "The core problem is device pairing UX, not the number of steps"
+      },
+      "survey": {
+        "summary": "Survey Results (n=487)",
+        "findings": [
+          "42% rated onboarding as 'Difficult' or 'Very Difficult'",
+          "Top pain point: 'Connecting my device' (68% selected)",
+          "Second: 'Understanding security zones' (34%)",
+          "NPS of onboarding flow: -12 (vs product NPS of +28)"
+        ],
+        "recommendation": "Clear signal that device connection is the primary friction point"
+      },
+      "ab_onboard": {
+        "summary": "A/B Test: 3-Step vs 5-Step Onboarding",
+        "variant_a": "Current 5-step flow",
+        "variant_b": "Simplified 3-step flow (merged Connect + Configure)",
+        "results": {
+          "metric": "Activation Rate",
+          "control": 31.2,
+          "variant": 36.8,
+          "lift": "+5.6pp",
+          "pvalue": 0.018,
+          "n_control": 1580,
+          "n_variant": 1620,
+          "significant": true
+        },
+        "guardrails": {
+          "support_tickets": { "control": 12.3, "variant": 14.1, "label": "Support tickets per 100 users", "warning": true }
+        }
+      },
+      "ab_push": {
+        "summary": "A/B Test: Push Notifications for Alarm Events",
+        "variant_a": "Email-only notifications",
+        "variant_b": "Push + Email notifications",
+        "results": {
+          "metric": "Week-4 Retention",
+          "control": 33.1,
+          "variant": 34.8,
+          "lift": "+1.7pp",
+          "pvalue": 0.23,
+          "n_control": 890,
+          "n_variant": 910,
+          "significant": false
+        },
+        "guardrails": {}
+      },
+      "prototype": {
+        "summary": "Usability Test: New Device Connection Wizard",
+        "findings": [
+          "4/5 users completed the new flow without assistance (vs 2/5 with current flow)",
+          "Average time to connect: 4.2 min (vs 11.8 min current)",
+          "All users understood QR code scanning immediately",
+          "1 user confused by 'zone assignment' step — suggested auto-detect"
+        ],
+        "recommendation": "Strong usability signal. QR-based pairing is a clear winner. Zone auto-detect worth exploring."
+      },
+      "feature_flag": {
+        "summary": "Feature Flag: Quick Setup Mode (10% rollout)",
+        "results": {
+          "metric": "Device Connection Rate",
+          "control": 48.0,
+          "variant": 61.2,
+          "lift": "+13.2pp",
+          "pvalue": 0.004,
+          "n_control": 2880,
+          "n_variant": 320,
+          "significant": true
+        },
+        "guardrails": {
+          "false_alarms": { "control": 2.1, "variant": 3.8, "label": "False alarm rate (%)", "warning": true }
+        },
+        "note": "Quick setup skips zone configuration — may cause more false alarms"
+      }
+    }
+  },
+
+  "games": {
+    "vanity": [
+      { "metric": "Total app downloads", "answer": "vanity", "explanation": "Downloads don't measure value — most users never activate" },
+      { "metric": "Week-4 retention rate by cohort", "answer": "actionable", "explanation": "Cohort retention directly measures whether users find ongoing value" },
+      { "metric": "Number of features shipped this quarter", "answer": "vanity", "explanation": "Output metric — shipping features doesn't guarantee outcomes" },
+      { "metric": "Time to first alarm test", "answer": "actionable", "explanation": "Measures activation speed — directly tied to user success" },
+      { "metric": "Total registered users", "answer": "vanity", "explanation": "Cumulative counter that only goes up — tells you nothing about current health" },
+      { "metric": "Monthly active users who triggered 3+ events", "answer": "actionable", "explanation": "Measures meaningful engagement, not just logins" },
+      { "metric": "App store rating", "answer": "vanity", "explanation": "Lagging, biased (only motivated users rate), and not actionable" },
+      { "metric": "Onboarding completion rate by step", "answer": "actionable", "explanation": "Shows exactly where users drop off — directly drives improvement" },
+      { "metric": "Number of support tickets", "answer": "actionable", "explanation": "Can be a leading indicator of UX problems — actionable when segmented" },
+      { "metric": "Social media followers", "answer": "vanity", "explanation": "No correlation with product value or business outcomes" },
+      { "metric": "Revenue per user segment", "answer": "actionable", "explanation": "Shows where value is concentrated — drives strategic decisions" },
+      { "metric": "Number of page views", "answer": "vanity", "explanation": "Activity ≠ value. A confused user generates lots of page views too" }
+    ],
+
+    "pvalue": [
+      {
+        "scenario": "Simplified onboarding flow",
+        "control": { "rate": 31.2, "n": 1580 },
+        "variant": { "rate": 36.8, "n": 1620 },
+        "pvalue": 0.018,
+        "answer": "significant",
+        "explanation": "p=0.018 < 0.05 threshold. With ~3,200 total users, this is a reliable result."
+      },
+      {
+        "scenario": "Push notifications for alarm events",
+        "control": { "rate": 33.1, "n": 890 },
+        "variant": { "rate": 34.8, "n": 910 },
+        "pvalue": 0.23,
+        "answer": "not_significant",
+        "explanation": "p=0.23 — the small lift could easily be noise. Sample size too small for this effect size."
+      },
+      {
+        "scenario": "New pricing page layout",
+        "control": { "rate": 4.2, "n": 5200 },
+        "variant": { "rate": 4.8, "n": 5100 },
+        "pvalue": 0.041,
+        "answer": "significant",
+        "explanation": "p=0.041 — just under the 0.05 threshold. With 10K+ users, the small absolute lift is reliable."
+      },
+      {
+        "scenario": "Email subject line test",
+        "control": { "rate": 22.1, "n": 340 },
+        "variant": { "rate": 28.5, "n": 320 },
+        "pvalue": 0.08,
+        "answer": "not_significant",
+        "explanation": "p=0.08 — promising direction but underpowered. Need 2-3x more sample to confirm."
+      },
+      {
+        "scenario": "Dashboard redesign impact on engagement",
+        "control": { "rate": 45.0, "n": 4200 },
+        "variant": { "rate": 44.2, "n": 4100 },
+        "pvalue": 0.52,
+        "answer": "not_significant",
+        "explanation": "p=0.52 — no effect detected. The redesign didn't change behavior (and that's okay to learn)."
+      },
+      {
+        "scenario": "In-app tutorial for zone setup",
+        "control": { "rate": 29.0, "n": 1100 },
+        "variant": { "rate": 38.5, "n": 1050 },
+        "pvalue": 0.001,
+        "answer": "significant",
+        "explanation": "p=0.001 — highly significant. Large effect (+9.5pp) with adequate sample. Ship it."
+      }
+    ]
+  }
+}
