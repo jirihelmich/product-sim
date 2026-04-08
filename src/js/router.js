@@ -16,7 +16,7 @@ const Router = {
   },
 
   navigate() {
-    const hash = window.location.hash.slice(1) || 'dashboard';
+    const hash = window.location.hash.slice(1) || 'home';
     const route = hash.split('?')[0]; // strip query params from hash
 
     // Update nav tabs

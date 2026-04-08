@@ -16,6 +16,7 @@
   if (!data) return;
 
   // Register routes
+  Router.register('home', HomeView.render);
   Router.register('dashboard', DashboardView.render);
   Router.register('decide', DecideView.render);
   Router.register('results', ResultsView.render);
